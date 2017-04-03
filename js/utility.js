@@ -86,7 +86,7 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
         console.log(document.title);
 
         $('#hover_layer_up_arrow').hide();
-        
+
 
         }, 0);
 
@@ -121,14 +121,14 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
     init: function() {
       window['void'] = function() {
 
-      };   
+      };
 
       $.showDialogTimeout = 0;
       $.showDialogEnter = 0;
       $.$main = $('#main');
 
 
-      $('.sw-icon-close').live('click', function() {
+      $('.sw-icon-close').on('click', function() {
         var $this = $(this);
         $('#hover_layer_up_arrow').css('display', 'none');
         $this.closest('.hover-layer').hide();
@@ -158,8 +158,8 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
         $.loadingIcon.show();
         $.progressBar.show();
         $.animateFn({
-          from: 0, 
-          to: $.progressBar.attr('max')/10, 
+          from: 0,
+          to: $.progressBar.attr('max')/10,
           step: function(v) {
             $.progressBar.attr('value',  v);
           }
@@ -167,8 +167,8 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
       });
       $(document).ajaxStop(function() {
         $.animateFn({
-          from: $.progressBar.attr('value'), 
-          to: $.progressBar.attr('max'), 
+          from: $.progressBar.attr('value'),
+          to: $.progressBar.attr('max'),
           step: function(v) {
             $.progressBar.attr('value',  v);
           },
@@ -420,7 +420,7 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
             });
 
           }
-        }, false); // for handling the progress 
+        }, false); // for handling the progress
       }
       return xhr;
     },
@@ -463,7 +463,7 @@ setTimeout(function(){
 }, 8000)
 //Google analytics and Disqus
 
-var disqus_shortname = 'shwchurch'; 
+var disqus_shortname = 'shwchurch';
 
 setTimeout(function(){
 
@@ -477,6 +477,3 @@ setTimeout(function(){
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 }, 16000)
-
-
-
