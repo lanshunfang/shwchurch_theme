@@ -148,9 +148,10 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
       $.loadingIcon = $('#loading_icon');
       $.progressBar = $('progress', $.loadingIcon);
 
+      var ieVersion = getMsieVersion();
 
-      var ieWarning = '<h4 style="color:#f00;font-size:18px;margin: 30px;">你使用的浏览器 Internet Explorer ' + $.browser.version + ' 已经是淘汰而且不安全的浏览器，我们目前无法保证你可以正常浏览守望网站。<br /> 建议下载安装 <a href="http://down.tech.sina.com.cn/content/40975.html">谷歌Chrome浏览器</a>。</h4>';
-      if($.browser.msie && parseInt($.browser.version) <= 6) {
+      var ieWarning = '<h4 style="color:#f00;font-size:18px;margin: 30px;">你使用的浏览器 Internet Explorer ' + ieVersion + ' 已经是淘汰而且不安全的浏览器，我们目前无法保证你可以正常浏览守望网站。<br /> 建议下载安装 <a href="http://down.tech.sina.com.cn/content/40975.html">谷歌Chrome浏览器</a>。</h4>';
+      if(ieVersion && ieVersion <= 6) {
         $(ieWarning).insertBefore('#access_sw');
       }
 
@@ -477,3 +478,15 @@ setTimeout(function(){
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 }, 16000)
+
+function getMsieVersion() {
+var ua = window.navigator.userAgent;
+var msie = ua.indexOf("MSIE ");
+
+if (msie > 0) // If Internet Explorer, return version number
+{
+  return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+}
+
+return false;
+}
