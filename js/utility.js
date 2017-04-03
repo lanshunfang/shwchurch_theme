@@ -97,10 +97,7 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
       }
 
 
-
-
-      var $leftNavA = $('#main .left-nav a').bind('touchend, click', leftNavClick);
-
+      var $leftNavA = $('#main .left-nav a').on('click', leftNavClick);
 
       var hashPart = hashEventCase.homeTab();
       if (hashPart == null) {
