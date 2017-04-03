@@ -47,7 +47,7 @@
   ?></title>
   <link rel="profile" href="http://gmpg.org/xfn/11" />
   <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-  
+
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 <!--[if lt IE 9]>
@@ -68,9 +68,7 @@
    */
   wp_head();
   ?>
-<script type="text/javascript">
 
-</script>
 </head>
 
 <body onunload=""  <?php body_class(); ?>>
@@ -101,7 +99,7 @@
      	  <a id="nav_sermon" href="/#/hashEventClick/selector/ID_main_sermon"  class="nav link item_<?php echo $k++;?>">讲道</a>
      	  <a id="nav_ej" href="/#/hashEventClick/selector/ID_main_ejournal"  class="nav link item_<?php echo $k++;?>">网络期刊</a>
           <a id="nav_all_cat" href="javascript:void(0)"  class="nav item_<?php echo $k++;?>">所有分类</a>
-          
+
         </div>
       </nav><!-- #access -->
 

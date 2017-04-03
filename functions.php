@@ -123,7 +123,7 @@ function shwchurch_setup() {
     // Callback used to display the header preview in the admin.
     'admin-preview-callback' => 'shwchurch_admin_header_image',
     );
-  
+
   add_theme_support( 'custom-header', $custom_header_support );
 
   if ( ! function_exists( 'get_custom_header' ) ) {
@@ -379,7 +379,7 @@ function shwchurch_widgets_init() {
 
   register_widget( 'Twenty_Eleven_Ephemera_Widget' );
 
-  
+
   register_sidebar( array(
     'name' => __( 'Nav Pics', 'shwchurch' ),
     'id' => 'nav_pic',
@@ -623,7 +623,7 @@ function sw_cat_2column($args) {
     // value among: default/default-first-excerpt/default-others-excerpt/list-column-1/list-column-2/list-column-3
     'displayType' => 'default',
     // if false, then paging support; if true, show all
-    'nopaging'  => false, 
+    'nopaging'  => false,
     'posts_per_page' => 30,
     'paged' => 0
     );
@@ -645,7 +645,7 @@ function sw_cat_2column($args) {
 
   if ( $query->have_posts() ) {
     $key = 0;
-    $countPosts = $query->post_count; 
+    $countPosts = $query->post_count;
 
     while ($query->have_posts()) {
       $query->the_post();
@@ -670,7 +670,7 @@ function sw_cat_2column($args) {
           <article class="<?php echo $firstClass; ?>">
             <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <div class="entry">
-              <p><?php 
+              <p><?php
               if (preg_match('/first-excerpt/i', $args['displayType'])) {
                 the_content();
               } else {
@@ -679,7 +679,7 @@ function sw_cat_2column($args) {
             </div>
           </article>
           <?php
-        } else { 
+        } else {
           if ($key === 1) {
             echo '<article class="' . $othersClass . '">';
             echo '<h2><a href="' . $catLink . '">' . $catName . '</a></h2>';
@@ -722,7 +722,7 @@ function sw_cat_2column($args) {
         if ($key === $lastKey){
           echo '</article>';
         }
-      } 
+      }
       $key++;
     }
   }
@@ -786,7 +786,7 @@ function sw_show_static_post($args) {
 
   if ( $query->have_posts() ) {
     $key = 0;
-    $countPosts = $query->post_count; 
+    $countPosts = $query->post_count;
     while ($query->have_posts()) {
       $query->the_post();
       sw_show_static_postObj();
@@ -845,7 +845,7 @@ function sw_show_lastest_child_cat($catId) {
   sw_post(array(
     'cat' => $latestCat->cat_ID
     ));
-  
+
 }
 
 function sw_show_ejournal_child_categories($category) {
@@ -890,7 +890,7 @@ function sw_show_latestpost_of_cat($catId) {
   // value among: default/default-first-excerpt/default-others-excerpt/list-column-1/list-column-2/list-column-3
     'displayType' => 'default',
   // if false, then paging support; if true, show all
-    'nopaging'  => false, 
+    'nopaging'  => false,
     'posts_per_page' => 30,
     'paged' => 0,
     'cat' => $catId
@@ -918,7 +918,7 @@ function sw_show_latestpost_xinghua($catId) {
   // value among: default/default-first-excerpt/default-others-excerpt/list-column-1/list-column-2/list-column-3
     'displayType' => 'default',
   // if false, then paging support; if true, show all
-    'nopaging'  => false, 
+    'nopaging'  => false,
     'posts_per_page' => 30,
     'paged' => 0,
     'cat' => $catId
@@ -965,7 +965,7 @@ function sw_post($args) {
         </div>
       </article>
 
-      <?php 
+      <?php
     }
   }
 
@@ -1014,7 +1014,7 @@ function sw_image_news($args = array()) {
       ?>
 
 
-      <?php 
+      <?php
     }
   }
 
@@ -1054,17 +1054,17 @@ add_action('category_template', 'child_force_category_template');
 
 // if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 // remove_action('template_redirect', 'redirect_canonical');
-// } 
+// }
 
 // seperate more before and more after
 function the_morehandled_content() {
-  $postContent = get_the_content(); 
+  $postContent = get_the_content();
   if(preg_match('/<span id="more-/', $postContent )) :
     global $more; $more = 0;       // Set (inside the loop) to display content above the more tag.
     ?>
     <div class="more-before add-radius-10">
     <?php
-    the_content(''); 
+    the_content('');
     ?>
     </div>
     <div class="more-after">
@@ -1075,7 +1075,7 @@ function the_morehandled_content() {
   <?php
 
   else : the_content();
-  endif; 
+  endif;
 }
 
 function get_the_morehandled_content() {
@@ -1084,14 +1084,14 @@ function get_the_morehandled_content() {
   if(is_single() && preg_match('/<span id="more-/', $postContent )) :
     global $more; $more = 0;       // Set (inside the loop) to display content above the more tag.
     $newContent = '<div class="more-before add-radius-10">';
-    $newContent .= get_the_content(''); 
+    $newContent .= get_the_content('');
     $newContent .= '</div>';
     $newContent .= '<div class="more-after">';
     $more = 1;
     $newContent .= get_the_content('', true ); // Set to hide content above the more tag.
     $newContent .= '</div>';
   else : $newContent = $postContent;
-  endif; 
+  endif;
   $newContent = apply_filters('the_content', $newContent);
   return $newContent;
 
@@ -1099,34 +1099,34 @@ function get_the_morehandled_content() {
 
 function wpse_allowedtags() {
     // Add custom tags to this string
-        return '<br>,<em>,<i>,<a>,<p>,<img>,<video>,<audio>,<div>,<span>'; 
+        return '<br>,<em>,<i>,<a>,<p>,<img>,<video>,<audio>,<div>,<span>';
 }
 
-if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) : 
+if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 
     function wpse_custom_wp_trim_excerpt($wpse_excerpt) {
     $raw_excerpt = $wpse_excerpt;
         if ( '' == $wpse_excerpt ) {
-        
+
             $wpse_excerpt = get_the_content('');
             $wpse_excerpt = strip_shortcodes( $wpse_excerpt );
             $wpse_excerpt = apply_filters('the_content', $wpse_excerpt);
             $wpse_excerpt = str_replace(']]>', ']]&gt;', $wpse_excerpt);
             $wpse_excerpt = strip_tags($wpse_excerpt, wpse_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
-                        
+
             //Set the excerpt word count and only break after sentence is complete.
                 $excerpt_word_count = 400;
-                #$excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
-                $excerpt_length = $excerpt_word_count; 
+                #$excerpt_length = apply_filters('excerpt_length', $excerpt_word_count);
+                $excerpt_length = $excerpt_word_count;
                 $tokens = array();
-                $excerptOutput = ''; 
+                $excerptOutput = '';
                 $count = 0;
-                
+
                 // Divide the string into tokens; HTML tags, or words, followed by any whitespace
                 preg_match_all('/(<[^>]+>|[^<>])/u', $wpse_excerpt, $tokens);
 
                 foreach ($tokens[0] as $token) {
-                
+
                     if ($count >= $excerpt_length && preg_match('/[\;\?\.\!\。\？\；]$/uS', $token)) {
                     // Limit reached, continue until , ; ? . or ! occur at the end
                         $excerptOutput .= trim($token);
@@ -1135,16 +1135,16 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 
                     // Add words to complete sentence
                     $count++;
-        
+
                     // Append what's left of the token
                     $excerptOutput .= $token;
                 }
-        
+
             $wpse_excerpt = trim(force_balance_tags($excerptOutput));
-                        
+
                 $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '">' . '&nbsp;&raquo;&nbsp;' . sprintf(__( 'Read more about: %s &nbsp;&raquo;', 'wpse' ), get_the_title()) . '</a>';
                 $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
-                        
+
                 //$pos = strrpos($wpse_excerpt, '</');
                 //if ($pos !== false)
                 // Inside last HTML tag
@@ -1152,10 +1152,21 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
                 //else
                 // After the content
                 $wpse_excerpt .= $excerpt_more; /*Add read more in new paragraph */
-           return $wpse_excerpt;   
+           return $wpse_excerpt;
 
         }
         return apply_filters('wpse_custom_wp_trim_excerpt', $wpse_excerpt, $raw_excerpt);
     }
 
 endif;
+
+// change jQuery to fix wechat first load issue
+// in wechat / webkit, on first load, Dom ready doesn't fire
+function modify_jquery_version() {
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', get_template_directory() . '/js/lib/jquery-3.2.0.min.js');
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('init', 'modify_jquery_version');
