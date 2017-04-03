@@ -104,7 +104,7 @@ location.hash = location.hash.replace('selector/%23', 'selector/ID_');
         // Sunday morning, jump to sermon
         var now = new Date(), hour = now.getHours();
         if (now.getDay() === 0 && (hour > 5 && hour < 16 )) {
-         // $leftNavA.filter('#main_worship').click();
+          $leftNavA.filter('#main_worship').click();
         } else {
           $leftNavA.filter('.default').click();
         }
