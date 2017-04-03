@@ -1165,7 +1165,7 @@ endif;
 function modify_jquery_version() {
     if (!is_admin()) {
         wp_deregister_script('jquery');
-        wp_register_script('jquery', get_template_directory() . '/js/lib/jquery-3.2.0.min.js');
+        wp_register_script('jquery', 'js/lib/jquery-3.2.0.min.js');
         wp_enqueue_script('jquery');
     }
 }
